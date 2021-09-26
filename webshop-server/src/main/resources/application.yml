@@ -7,16 +7,31 @@ spring:
     web-application-type: reactive
 
   datasource:
-    url: jdbc:h2:mem:webshop
+    url: jdbc:h2:file:./build/webshop-db
     driverClassName: org.h2.Driver
     username: admin
     password: admin
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
 
     hibernate:
       ddl-auto: update
 
 server:
   port: 8888
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+graphql:
+  graphiql:
+    enabled: true
+    mapping: /graphiql

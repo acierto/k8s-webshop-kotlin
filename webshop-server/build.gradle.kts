@@ -23,6 +23,8 @@ val springGeodeVersion: String by project
 
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.graphql-java-kickstart:graphql-java-tools:11.1.2")
+    implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:12.0.0")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -38,6 +40,7 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
+    testImplementation("com.graphql-java-kickstart:graphql-spring-boot-starter-test:12.0.0")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
