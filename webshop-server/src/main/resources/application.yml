@@ -1,0 +1,7 @@
+spring:
+  web:
+    resources:
+      cache:
+        period: 126230400
+  main:
+    web-application-type: reactive

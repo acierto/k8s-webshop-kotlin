@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.5.4"
+    id("org.springframework.boot") version "2.5.5"
     id("io.spring.dependency-management")
     id("org.asciidoctor.convert") version "1.5.8"
     kotlin("jvm")
@@ -28,6 +28,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
@@ -68,4 +69,13 @@ tasks.test {
 tasks.asciidoctor {
     inputs.dir(project.property("snippetsDir") as Any)
     dependsOn(tasks.test)
+}
+
+tasks.register<Sync>("staticResourcesSync") {
+    from("${rootProject.projectDir}/webshop-frontend/build")
+    into("${rootProject.projectDir}/webshop-server/src/main/resources/static")
+}
+
+tasks.bootRun {
+    dependsOn("staticResourcesSync")
 }

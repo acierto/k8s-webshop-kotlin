@@ -12,7 +12,7 @@ tasks {
         dependsOn("yarn_install")
     }
 
-    named("yarn_start") {
+    named("yarn_debug") {
         dependsOn("yarn_install")
     }
 }
