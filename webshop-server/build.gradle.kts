@@ -1,9 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.5.5"
     id("io.spring.dependency-management")
     id("org.asciidoctor.convert") version "1.5.8"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.5.31"
+    id("org.springframework.boot") version "2.5.5"
     kotlin("jvm")
     kotlin("plugin.spring") version "1.5.21"
 }
@@ -29,14 +30,15 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.hibernate:hibernate-core")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     runtimeOnly("com.h2database:h2")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
     testImplementation("org.springframework.restdocs:spring-restdocs-webtestclient")
     testImplementation("org.springframework.security:spring-security-test")

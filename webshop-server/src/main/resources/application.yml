@@ -5,3 +5,15 @@ spring:
         period: 126230400
   main:
     web-application-type: reactive
+
+  datasource:
+    url: jdbc:h2:mem:webshop
+    driverClassName: org.h2.Driver
+    username: admin
+    password: admin
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+    hibernate:
+      ddl-auto: update
