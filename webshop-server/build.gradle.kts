@@ -76,6 +76,6 @@ tasks.register<Sync>("staticResourcesSync") {
     into("${rootProject.projectDir}/webshop-server/src/main/resources/static")
 }
 
-tasks.bootRun {
+tasks.processResources {
     dependsOn("staticResourcesSync")
 }
