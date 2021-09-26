@@ -72,7 +72,7 @@ tasks.asciidoctor {
 }
 
 tasks.register<Sync>("staticResourcesSync") {
-    from("${rootProject.projectDir}/webshop-frontend/build")
+    from("${rootProject.projectDir}/webshop-frontend/dist")
     into("${rootProject.projectDir}/webshop-server/src/main/resources/static")
 }
 
