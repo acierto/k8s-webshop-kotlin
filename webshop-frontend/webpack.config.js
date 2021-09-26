@@ -44,7 +44,10 @@ module.exports = {
         port: 4000,
         open: true,
         hot: true,
-        static: './build'
+        static: './build',
+        proxy: {
+            '/graphql': 'http://localhost:8888',
+        },
     },
 
     plugins: [new HtmlWebpackPlugin({

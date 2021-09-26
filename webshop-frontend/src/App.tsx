@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
+import {Items} from "./Items";
 
+export const App = () =>
+    <div>
+        <div>Web Shop</div>
 
-class App extends Component {
-    render() {
-        return <div>Web Shop</div>;
-    }
-}
-
-export default App;
+        <div>
+            <Items/>
+        </div>
+    </div>
